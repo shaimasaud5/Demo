@@ -3,63 +3,83 @@
 #   all its checks passed -> met; any failed -> failed; no checks listed -> uncovered (a coverage gap, shown as such).
 # These are sample requirements for the demo: replace them with the real requirements document.
 requirements:
-  - id: R-01
-    ar: المستخدم لا يدخل حسابه ولا سلته إلا بعد تسجيل دخول صحيح
-    en: A user reaches the account and cart only after a correct sign-in
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [cart_requires_login, wrong_password_is_rejected]
-  - id: R-02
-    ar: البحث عن الكتب محمي من حقن قاعدة البيانات
-    en: Book search is protected from database injection
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [search_resists_sql_injection]
-  - id: R-03
-    ar: الأخطاء لا تكشف تفاصيل النظام الداخلية
-    en: Errors do not reveal internal system details
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [errors_do_not_leak_internals]
-  - id: R-04
-    ar: المتصفح يستلم رؤوس الحماية
-    en: The browser receives security headers
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [security_headers_are_set]
-  - id: R-05
-    ar: الاتصال بالمتجر مشفّر عبر HTTPS
-    en: The connection to the shop is encrypted with HTTPS
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [connection_uses_https]
-  - id: R-06
-    ar: بيانات المستخدم محمية: كلمات المرور مشفّرة، لا بيانات بطاقات، والطلبات خاصة
-    en: User data is protected: hashed passwords, no card data, private orders
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [passwords_are_stored_hashed, card_data_is_not_stored, other_users_orders_are_not_visible]
-  - id: R-07
-    ar: الحماية من تخمين كلمات المرور: قفل الحساب وتسجيل المحاولات الفاشلة
-    en: Protection from password guessing: account lockout and logging of failed sign-ins
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [account_locks_after_failed_logins, failed_logins_are_logged]
-  - id: R-08
-    ar: الجلسة تنتهي بعد فترة خمول
-    en: The session ends after a period of inactivity
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [session_expires_after_inactivity]
-  - id: R-09
-    ar: الحماية من هجمات الويب: XSS وCSRF ورفع الملفات
-    en: Protection from web attacks: XSS, CSRF and file upload
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [search_output_is_escaped, forms_have_csrf_protection, upload_accepts_images_only]
-  - id: R-10
-    ar: السلة والبحث يعملون: إضافة الكتب، الكمية، والبحث بالعنوان أو المؤلف
-    en: The cart and search work: adding books, quantity, and search by title or author
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [cart_add_and_quantity_work, search_finds_books_by_title_and_author]
-  - id: R-11
-    ar: يظهر تأكيد الطلب بعد إتمام الشراء
-    en: An order confirmation appears after checkout
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [order_confirmation_appears_after_checkout]
-  - id: R-12
-    ar: تجربة المستخدم: الصفحات بالعربي والإنجليزي وتُحمَّل بسرعة
-    en: User experience: pages in Arabic and English that load quickly
-    source: متطلبات العرض التجريبي · Demo requirements
-    checks: [pages_available_in_arabic_and_english, home_page_loads_fast]
+- id: R-01
+  ar: المستخدم لا يدخل حسابه ولا سلته إلا بعد تسجيل دخول صحيح
+  en: A user reaches the account and cart only after a correct sign-in
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - cart_requires_login
+  - wrong_password_is_rejected
+- id: R-02
+  ar: البحث عن الكتب محمي من حقن قاعدة البيانات
+  en: Book search is protected from database injection
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - search_resists_sql_injection
+- id: R-03
+  ar: الأخطاء لا تكشف تفاصيل النظام الداخلية
+  en: Errors do not reveal internal system details
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - errors_do_not_leak_internals
+- id: R-04
+  ar: المتصفح يستلم رؤوس الحماية
+  en: The browser receives security headers
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - security_headers_are_set
+- id: R-05
+  ar: الاتصال بالمتجر مشفّر عبر HTTPS
+  en: The connection to the shop is encrypted with HTTPS
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - connection_uses_https
+- id: R-06
+  ar: 'بيانات المستخدم محمية: كلمات المرور مشفّرة، لا بيانات بطاقات، والطلبات خاصة'
+  en: 'User data is protected: hashed passwords, no card data, private orders'
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - passwords_are_stored_hashed
+  - card_data_is_not_stored
+  - other_users_orders_are_not_visible
+- id: R-07
+  ar: 'الحماية من تخمين كلمات المرور: قفل الحساب وتسجيل المحاولات الفاشلة'
+  en: 'Protection from password guessing: account lockout and logging of failed sign-ins'
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - account_locks_after_failed_logins
+  - failed_logins_are_logged
+- id: R-08
+  ar: الجلسة تنتهي بعد فترة خمول
+  en: The session ends after a period of inactivity
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - session_expires_after_inactivity
+- id: R-09
+  ar: 'الحماية من هجمات الويب: XSS وCSRF ورفع الملفات'
+  en: 'Protection from web attacks: XSS, CSRF and file upload'
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - search_output_is_escaped
+  - forms_have_csrf_protection
+  - upload_accepts_images_only
+- id: R-10
+  ar: 'السلة والبحث يعملون: إضافة الكتب، الكمية، والبحث بالعنوان أو المؤلف'
+  en: 'The cart and search work: adding books, quantity, and search by title or author'
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - cart_add_and_quantity_work
+  - search_finds_books_by_title_and_author
+- id: R-11
+  ar: يظهر تأكيد الطلب بعد إتمام الشراء
+  en: An order confirmation appears after checkout
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - order_confirmation_appears_after_checkout
+- id: R-12
+  ar: 'تجربة المستخدم: الصفحات بالعربي والإنجليزي وتُحمَّل بسرعة'
+  en: 'User experience: pages in Arabic and English that load quickly'
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - pages_available_in_arabic_and_english
+  - home_page_loads_fast
