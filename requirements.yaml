@@ -1,0 +1,105 @@
+# Requirements for the demo shop (Maktabti). The QA reviewer checks each release against them.
+# Each requirement lists the QA checks (see qa_checks/) that cover it. The status is computed by code from the real check results:
+#   all its checks passed -> met; any failed -> failed; no checks listed -> uncovered (a coverage gap, shown as such).
+# These are sample requirements for the demo: replace them with the real requirements document.
+requirements:
+  - id: R-01
+    ar: المستخدم لا يدخل حسابه إلا بكلمة مرور صحيحة
+    en: A user can only sign in with the correct password
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [wrong_password_is_rejected]
+  - id: R-02
+    ar: السلة وصفحات الحساب تتطلب تسجيل دخول
+    en: The cart and account pages require a sign-in
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [cart_requires_login]
+  - id: R-03
+    ar: البحث عن الكتب محمي من حقن قاعدة البيانات
+    en: Book search is protected from database injection
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [search_resists_sql_injection]
+  - id: R-04
+    ar: الأخطاء لا تكشف تفاصيل النظام الداخلية
+    en: Errors do not reveal internal system details
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [errors_do_not_leak_internals]
+  - id: R-05
+    ar: المتصفح يستلم رؤوس الحماية
+    en: The browser receives security headers
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [security_headers_are_set]
+  - id: R-06
+    ar: الاتصال بالمتجر مشفّر عبر HTTPS
+    en: The connection to the shop is encrypted with HTTPS
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [connection_uses_https]
+  - id: R-07
+    ar: كلمات المرور تُخزّن مشفّرة وليست نصًا صريحًا
+    en: Passwords are stored hashed, not as plain text
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [passwords_are_stored_hashed]
+  - id: R-08
+    ar: الحساب يُقفل بعد عدة محاولات دخول فاشلة
+    en: The account locks after several failed sign-ins
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [account_locks_after_failed_logins]
+  - id: R-09
+    ar: الجلسة تنتهي بعد فترة خمول
+    en: The session ends after a period of inactivity
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [session_expires_after_inactivity]
+  - id: R-10
+    ar: نتائج البحث لا تنفّذ أكواد خبيثة (XSS)
+    en: Search results do not run malicious scripts (XSS)
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [search_output_is_escaped]
+  - id: R-11
+    ar: نماذج الشراء محمية من هجمات CSRF
+    en: Checkout forms are protected from CSRF
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [forms_have_csrf_protection]
+  - id: R-12
+    ar: محاولات الدخول الفاشلة تُسجَّل
+    en: Failed sign-in attempts are logged
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [failed_logins_are_logged]
+  - id: R-13
+    ar: المستخدم يقدر يضيف كتابًا للسلة ويعدّل الكمية
+    en: A user can add a book to the cart and change the quantity
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [cart_add_and_quantity_work]
+  - id: R-14
+    ar: المستخدم يقدر يبحث بعنوان الكتاب أو المؤلف
+    en: A user can search by book title or author
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [search_finds_books_by_title_and_author]
+  - id: R-15
+    ar: يظهر تأكيد الطلب بعد إتمام الشراء
+    en: An order confirmation appears after checkout
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [order_confirmation_appears_after_checkout]
+  - id: R-16
+    ar: بيانات بطاقة الدفع لا تُخزَّن في النظام
+    en: Payment card data is not stored in the system
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [card_data_is_not_stored]
+  - id: R-17
+    ar: المستخدم لا يشوف طلبات مستخدم آخر
+    en: A user cannot see another user's orders
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [other_users_orders_are_not_visible]
+  - id: R-18
+    ar: رفع صورة الغلاف يقبل الصور فقط
+    en: Cover upload accepts images only
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [upload_accepts_images_only]
+  - id: R-19
+    ar: الصفحات تعمل بالعربي والإنجليزي
+    en: Pages work in Arabic and English
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [pages_available_in_arabic_and_english]
+  - id: R-20
+    ar: الصفحة الرئيسية تُحمَّل بأقل من 3 ثوانٍ
+    en: The home page loads in under 3 seconds
+    source: متطلبات العرض التجريبي · Demo requirements
+    checks: [home_page_loads_fast]
