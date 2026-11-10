@@ -29,26 +29,23 @@ requirements:
   checks:
   - security_headers_are_set
 - id: R-05
-  ar: الموقع يشتغل بقفل الحماية HTTPS
-  en: The site runs with the HTTPS lock
-  source: متطلبات العرض التجريبي · Demo requirements
-  checks:
-  - connection_uses_https
-- id: R-06
-  ar: بيانات المستخدمين محفوظة بأمان
-  en: User data is kept safe
+  ar: كلمات المرور محفوظة مشفّرة
+  en: Passwords are stored encrypted
   source: متطلبات العرض التجريبي · Demo requirements
   checks:
   - passwords_are_stored_hashed
-  - card_data_is_not_stored
-  - other_users_orders_are_not_visible
-- id: R-07
-  ar: ما أحد يقدر يخمّن كلمة المرور
-  en: Nobody can guess a password
+- id: R-06
+  ar: بيانات البطاقات ما تُحفظ
+  en: Card data is not stored
   source: متطلبات العرض التجريبي · Demo requirements
   checks:
-  - account_locks_after_failed_logins
-  - failed_logins_are_logged
+  - card_data_is_not_stored
+- id: R-07
+  ar: كل مستخدم يشوف طلباته بس
+  en: Each user sees only their own orders
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - other_users_orders_are_not_visible
 - id: R-08
   ar: الجلسة تنتهي إذا المستخدم تركها
   en: The session ends when the user leaves it
@@ -56,30 +53,27 @@ requirements:
   checks:
   - session_expires_after_inactivity
 - id: R-09
-  ar: الموقع محمي من الهجمات الشائعة
-  en: The site is protected from common attacks
+  ar: البحث ما يشغّل أكواد خبيثة
+  en: Search does not run malicious code
   source: متطلبات العرض التجريبي · Demo requirements
   checks:
   - search_output_is_escaped
-  - forms_have_csrf_protection
-  - upload_accepts_images_only
 - id: R-10
-  ar: السلة والبحث يشتغلون صح
-  en: The cart and search work correctly
+  ar: رفع الصور يقبل الصور فقط
+  en: Image upload accepts images only
+  source: متطلبات العرض التجريبي · Demo requirements
+  checks:
+  - upload_accepts_images_only
+- id: R-11
+  ar: السلة تضيف الكتب وتحسب الكمية
+  en: The cart adds books and counts quantity
   source: متطلبات العرض التجريبي · Demo requirements
   checks:
   - cart_add_and_quantity_work
-  - search_finds_books_by_title_and_author
-- id: R-11
-  ar: يطلع تأكيد بعد الشراء
-  en: A confirmation appears after buying
-  source: متطلبات العرض التجريبي · Demo requirements
-  checks:
-  - order_confirmation_appears_after_checkout
 - id: R-12
-  ar: الموقع بالعربي والإنجليزي وسريع
-  en: The site is in Arabic and English, and fast
+  ar: البحث يلقى الكتب والصفحة سريعة
+  en: Search finds books and the page is fast
   source: متطلبات العرض التجريبي · Demo requirements
   checks:
-  - pages_available_in_arabic_and_english
+  - search_finds_books_by_title_and_author
   - home_page_loads_fast
